@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:background="@drawable/rect_border"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/v_color_display"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000000" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/r" />
+
+    <EditText
+        android:id="@+id/et_red"
+        style="@style/EditTextStyle" />
+
+    <SeekBar
+        android:id="@+id/seek_red"
+        style="@style/SeekBarStyle"
+        android:tag="@string/r" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/g" />
+
+    <EditText
+        android:id="@+id/et_green"
+        style="@style/EditTextStyle" />
+
+    <SeekBar
+        android:id="@+id/seek_green"
+        style="@style/SeekBarStyle"
+        android:tag="@string/g" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/b" />
+
+    <EditText
+        android:id="@+id/et_blue"
+        style="@style/EditTextStyle" />
+
+    <SeekBar
+        android:id="@+id/seek_blue"
+        style="@style/SeekBarStyle"
+        android:tag="@string/b" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/alpha" />
+
+    <TextView
+        android:id="@+id/tv_alpha"
+        style="@style/TextViewStyle" />
+
+    <SeekBar
+        android:id="@+id/seek_alpha"
+        style="@style/SeekBarStyle"
+        android:max="100"
+        android:progress="100"
+        android:tag="@string/alpha" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/TextViewStyle"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="@string/result" />
+        <TextView
+            style="@style/TextViewStyle"
+            android:id="@+id/color_hex"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:gravity="start"/>
+    </LinearLayout>
+</LinearLayout>

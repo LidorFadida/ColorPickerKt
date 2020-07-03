@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lec4_Tomer_color_picker</string>
+    <string name="defaultColor">128</string>
+    <string name="r">R</string>
+    <string name="g">G</string>
+    <string name="b">B</string>
+    <string name="alpha">A%</string>
+    <string name="result">Result : </string>
+</resources>
