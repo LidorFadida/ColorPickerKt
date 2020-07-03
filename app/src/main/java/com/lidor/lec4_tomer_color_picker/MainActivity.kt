@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.lidor.lec4_tomer_color_picker.model.ColorsTextWatcher
 
+private const val hexFormat: String = "#%02X%02X%02X"
+
 class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
     companion object {
         const val MAX_RGB_REPRESENTATION: Int = 255
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.tvAlpha.text = "$DEFAULT_ALPHA_REPRESENTATION"
         this.tvColorHex = findViewById(R.id.color_hex)
         this.tvColorHex.text =
-            String.format("#%02X%02X%02X", seekRed.progress, seekGreen.progress, seekBlue.progress)
+            String.format(hexFormat, seekRed.progress, seekGreen.progress, seekBlue.progress)
         //Attach listeners
         attachListeners()
     }
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         )
         this.colorDisplay.alpha = tvAlpha.text.toString().toFloat()
         this.tvColorHex.text =
-            String.format("#%02X%02X%02X", seekRed.progress, seekGreen.progress, seekBlue.progress)
+            String.format(hexFormat, seekRed.progress, seekGreen.progress, seekBlue.progress)
 
     }
 
