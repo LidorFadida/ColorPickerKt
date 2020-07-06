@@ -77,12 +77,14 @@ class MainActivity : AppCompatActivity(), PickerSeekBarChanged {
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        when (seekBar?.id) {
-            R.id.seek_red -> etRed.setText("$progress")
-            R.id.seek_green -> etGreen.setText("$progress")
-            R.id.seek_blue -> etBlue.setText("$progress")
-            R.id.seek_alpha -> tvAlpha.text = "${progress * 0.01}".substring(0, 3)
-            else -> throw RuntimeException("Couldn't process seekBar id.")
+        if (fromUser){
+            when (seekBar?.id) {
+                R.id.seek_red -> etRed.setText("$progress")
+                R.id.seek_green -> etGreen.setText("$progress")
+                R.id.seek_blue -> etBlue.setText("$progress")
+                R.id.seek_alpha -> tvAlpha.text = "${progress * 0.01}".substring(0, 3)
+                else -> throw RuntimeException("Couldn't process seekBar id.")
+            }
         }
         this.colorDisplay.setBackgroundColor(
             Color.rgb(
