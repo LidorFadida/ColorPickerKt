@@ -1,18 +1,17 @@
 package com.lidor.lec4_tomer_color_picker.model
 
 import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.SeekBar
-import com.lidor.lec4_tomer_color_picker.MainActivity.Companion.MAX_RGB_REPRESENTATION
+import com.lidor.lec4_tomer_color_picker.MAX_RGB_REPRESENTATION
+
 
 class ColorsTextWatcher(private val etTarget: EditText, private val sbTarget: SeekBar) :
-    TextWatcher, View.OnFocusChangeListener {
+     View.OnFocusChangeListener , PickerTextWatcher{
     init {
         this.etTarget.onFocusChangeListener = this
     }
-
     override fun afterTextChanged(s: Editable?) {
         this.sbTarget.progress = validateValue(s)
         val value = this.etTarget.text.toString()
@@ -31,10 +30,6 @@ class ColorsTextWatcher(private val etTarget: EditText, private val sbTarget: Se
         }
         return 0
     }
-
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
         if (!hasFocus)
             if ((v as EditText).text.isEmpty())

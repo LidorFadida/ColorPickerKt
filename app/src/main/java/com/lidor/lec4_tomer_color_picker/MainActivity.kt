@@ -8,16 +8,15 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.lidor.lec4_tomer_color_picker.model.ColorsTextWatcher
+import com.lidor.lec4_tomer_color_picker.model.PickerSeekBarChanged
 
 private const val hexFormat: String = "#%02X%02X%02X"
 
-class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
-    companion object {
-        const val MAX_RGB_REPRESENTATION: Int = 255
-        const val DEFAULT_RAB_REPRESENTATION: Int = 128
-        const val DEFAULT_ALPHA_REPRESENTATION: Float = 1.0F
-    }
+const val MAX_RGB_REPRESENTATION: Int = 255
+const val DEFAULT_RGB_REPRESENTATION: Int = 128
+const val DEFAULT_ALPHA_REPRESENTATION: Float = 1.0F
 
+class MainActivity : AppCompatActivity(), PickerSeekBarChanged {
     private lateinit var tvAlpha: TextView
     private lateinit var tvColorHex: TextView
     private lateinit var etRed: EditText
@@ -40,9 +39,9 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.colorDisplay = findViewById(R.id.v_color_display)
         this.colorDisplay.setBackgroundColor(
             Color.rgb(
-                DEFAULT_RAB_REPRESENTATION
-                , DEFAULT_RAB_REPRESENTATION
-                , DEFAULT_RAB_REPRESENTATION
+                DEFAULT_RGB_REPRESENTATION
+                , DEFAULT_RGB_REPRESENTATION
+                , DEFAULT_RGB_REPRESENTATION
             )
         )
         this.colorDisplay.alpha = DEFAULT_ALPHA_REPRESENTATION
@@ -96,13 +95,5 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         this.tvColorHex.text =
             String.format(hexFormat, seekRed.progress, seekGreen.progress, seekBlue.progress)
 
-    }
-
-    override fun onStartTrackingTouch(seekBar: SeekBar?) {
-        //case seekBar indicator pressed
-    }
-
-    override fun onStopTrackingTouch(seekBar: SeekBar?) {
-        //case seekBar indicator released
     }
 }
